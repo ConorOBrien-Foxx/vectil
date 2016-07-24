@@ -1,0 +1,20 @@
+html {
+    font-family: Consolas;
+}
+
+#code {
+    font-family: Consolas, monospace;
+}
+
+#console {
+    border-left: 1px solid #ddd;
+    background: #eee;
+    min-height: 2em;
+    padding: 15px;
+    white-space: pre;
+}
+
+svg {
+    float: left;
+    clear: left;
+}
