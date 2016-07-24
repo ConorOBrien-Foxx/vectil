@@ -383,6 +383,8 @@ const exec = (code, stack, svg, info) => {
 
 window.addEventListener("load", function(){
     document.getElementById("submit").addEventListener("click", function(){
+        document.getElementById("console").textContent = "";
+        d3.select("svg").remove();
         exec(document.getElementById("code").value);
     });
     // iceland flag
