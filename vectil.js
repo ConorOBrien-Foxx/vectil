@@ -137,6 +137,22 @@ const _rect = new Op({
     }
 });
 
+const _circle = new Op({
+    symbol: "d",
+    name: "draw disk",
+    effect: (stack, svg) => {
+        let color = "#" + toColour(stack._pop());
+        let radius = stack._pop();
+        let y = stack._pop();
+        let x = stack._pop();
+        stack.push(svg.append("circle")
+            .attr("cx", x)
+            .attr("cy", y)
+            .attr("r", radius)
+            .attr("fill", color));
+    }
+});
+
 // const _boRect = new Op({
     // symbol: "s",
     // effect: (stack, svg) => {
@@ -155,6 +171,18 @@ const _sub = new Op({
     symbol: "-",
     name: "sub",
     effect: binary((a, b) => a - b)
+});
+
+const _mul = new Op({
+    symbol: "*",
+    name: "mul",
+    effect: binary((a, b) => a * b)
+});
+
+const _div = new Op({
+    symbol: "/",
+    name: "div",
+    effect: binary((a, b) => a / b)
 });
 
 const _dup = new Op({
